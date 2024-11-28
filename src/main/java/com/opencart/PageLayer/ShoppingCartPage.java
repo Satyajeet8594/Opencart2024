@@ -48,7 +48,7 @@ public class ShoppingCartPage {
 		String EmptyCarttext = driver.findElement(ShoppingCartEmpty_text).getText();
 		return EmptyCarttext;
 	}
-	public void tablePresentOrNot()
+	public boolean tablePresentOrNot()
 	{
 		WebElement table = driver.findElement(ShoppingCart_table);
 			
@@ -67,6 +67,8 @@ public class ShoppingCartPage {
 		{
 			System.out.println(e);
 		}
+		return value;
+		// code push28112024
 		
 		
 		
