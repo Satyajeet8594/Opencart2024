@@ -1,27 +1,32 @@
 package com.opencart.PageLayer;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddressBookEntryPage {
 	
-	WebDriver driver;
+	private WebDriver driver;
 	
 	public AddressBookEntryPage(WebDriver d)
 	{
 		driver = d;
 	}
 	
-	//===== Object Repository =====
+	//===== Object Repository ============================================
 	
-	By NewAddress_Button = By.xpath("//a[text()='New Address']");
-	By EditAddress_button = By.xpath("//*[@id=\"content\"]/div[1]/table/tbody/tr[1]/td[2]/a[1]");
-	By DeleteAddress_button = By.xpath("//a[text()='Delete']");
+	private By NewAddress_Button = By.xpath("//a[text()='New Address']");
+	private By EditAddress_button = By.xpath("//*[@id=\"content\"]/div[1]/table/tbody/tr[1]/td[2]/a[1]");
+	private By DeleteAddress_button = By.xpath("//a[text()='Delete']");
 	
-	By AddressDeletedSuccessfully = By.xpath("//div[text()=' Your address has been successfully deleted']");
-	By AddressUpdatedSuccessfully = By.xpath("//div[text()=' Your address has been successfully updated']");
-	By AddressAddedSuccessfully = By.xpath("//div[text()=' Your address has been successfully added']");
-	//===== Action Method =========
+	private By AddressDeletedSuccessfully = By.xpath("//div[text()=' Your address has been successfully deleted']");
+	private By AddressUpdatedSuccessfully = By.xpath("//div[text()=' Your address has been successfully updated']");
+	private By AddressAddedSuccessfully = By.xpath("//div[@class='alert alert-success alert-dismissible']");
+	
+	//===== Action Method =================================================
 	
 	public void clickOnNewAddressButton()
 	{
@@ -47,8 +52,14 @@ public class AddressBookEntryPage {
 	}
 	public String getAddressDeletedMessage()
 	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		String AddressDeleted = driver.findElement(AddressDeletedSuccessfully).getText();
 		return AddressDeleted;
+	}
+	public void acceptAlert()
+	{
+		driver.switchTo().alert();
+		driver.switchTo().alert().accept();
 	}
 
 }

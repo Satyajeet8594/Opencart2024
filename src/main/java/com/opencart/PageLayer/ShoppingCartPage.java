@@ -20,18 +20,13 @@ public class ShoppingCartPage {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 	}
 	
-	//==========================================================
+	//========== Object Repository =============================================
 	private By Prod_text = By.xpath("//div[@class='table-responsive']/table/tbody/tr/td[@class='text-left']/a");
-	
-	//*[@id='content']/form/div/table/tbody/tr/td[2]
-	
-	private By ProductRemoveFromShoppingCart_button = By.xpath("(//span[@class='input-group-btn'])[2]/button[@type='button']");
-	
+	private By ProductRemoveFromShoppingCart_button = By.xpath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[2]");
 	private By ShoppingCartEmpty_text = By.xpath("//div[@id='content']/p");
-	
 	private By ShoppingCart_table = By.xpath("//div[@class='table-responsive']");
 	
-	//==========================================================
+	//============ Actions Method ==============================================
 
 	public String getProductName()
 	{
@@ -41,37 +36,12 @@ public class ShoppingCartPage {
 	public void clickOnProductRemoveButton()
 	{
 		driver.findElement(ProductRemoveFromShoppingCart_button).click();
-	}
-	
+		
+	}	
 	public String getEmptyCartText()
 	{
 		String EmptyCarttext = driver.findElement(ShoppingCartEmpty_text).getText();
 		return EmptyCarttext;
 	}
-	public boolean tablePresentOrNot()
-	{
-		WebElement table = driver.findElement(ShoppingCart_table);
-			
-		boolean value1 = driver.findElement(ShoppingCart_table).isDisplayed();
-		
-		while(value1==true)
-		{
-			wait.until(ExpectedConditions.invisibilityOf(table));
-			break;
-		}
-		try 
-		{
-			boolean value = driver.findElement(ShoppingCart_table).isDisplayed();
-		}
-		catch(NoSuchElementException e )
-		{
-			System.out.println(e);
-		}
-		return value;
-		// code push28112024
-		
-		
-		
-
-	}
+	
 }

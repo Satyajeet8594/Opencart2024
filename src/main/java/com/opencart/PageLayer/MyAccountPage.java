@@ -5,19 +5,19 @@ import org.openqa.selenium.WebDriver;
 
 public class MyAccountPage {
 	
-	WebDriver driver;
+	private WebDriver driver;
 	
 	public MyAccountPage(WebDriver d)
 	{
 		driver = d;
 	}
 	
-	//===== Object Repository =====
+	//===== Object Repository =============================================
 	
-	By Logout_link = By.xpath("//li/a[text()='Logout']");
-	By AddressBook_Link = By.xpath("//a[text()='Address Book']");
+	private By Logout_link = By.xpath("//li/a[text()='Logout']");
+	private By AddressBook_Link = By.xpath("//a[text()='Address Book']");
 	
-	//===== Action Method =========
+	//===== Action Method =================================================
 	
 	public void clickOnLogoutLink()
 	{

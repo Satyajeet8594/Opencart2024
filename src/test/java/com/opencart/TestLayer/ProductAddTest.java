@@ -10,7 +10,7 @@ import com.opencart.TestBase.TestBase;
 
 public class ProductAddTest extends TestBase {
 	
-	//@Test
+	@Test
 	public void verifySuccessfullyAddToCartText()
 	{
 		String product_name = "MacBook";
@@ -32,7 +32,7 @@ public class ProductAddTest extends TestBase {
 	}
 	
 	@Test
-	public void verifyProductRemoveFromShoppingCart()
+	public void verifyProductRemoveFromShoppingCart() throws InterruptedException
 	{
 		String product_name = "MacBook";
 		
@@ -48,14 +48,12 @@ public class ProductAddTest extends TestBase {
 		ShoppingCartPage ShoppingCartPage_obj = new ShoppingCartPage(driver);
 		ShoppingCartPage_obj.clickOnProductRemoveButton();
 		
+		Thread.sleep(3000);
+		
 		String actual_reult = ShoppingCartPage_obj.getEmptyCartText();
 		String expected_result = "Your shopping cart is empty!";
 		
-		boolean newValue = ShoppingCartPage_obj.tablePresentOrNot();
-		
-		System.out.println(newValue);
-		
-
+		Assert.assertEquals(actual_reult, expected_result);
 	}
 
 }

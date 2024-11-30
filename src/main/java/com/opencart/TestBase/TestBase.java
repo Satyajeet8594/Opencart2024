@@ -8,25 +8,21 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class TestBase {
-		
+
 	public static WebDriver driver;
-	
+
 	@BeforeMethod
-	public void setUp()
-	{
+	public void setUp() {
 		driver = new ChromeDriver();
 		driver.get("https://naveenautomationlabs.com/opencart/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().deleteAllCookies();
 	}
-	
+
 	@AfterMethod
-	public void tearDown()
-	{
-		//driver.quit();
+	public void tearDown() {
+		// driver.quit();
 	}
-	
-	
 
 }

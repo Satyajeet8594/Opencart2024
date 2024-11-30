@@ -10,7 +10,7 @@ import com.opencart.PageLayer.SearchProductPage;
 import com.opencart.PageLayer.ShoppingCartPage;
 import com.opencart.TestBase.TestBase;
 
-public class Dummy extends TestBase {
+public class AddToWishList extends TestBase {
 	
 	@Test
 	public void verifyProductAddToWishlist()
@@ -49,7 +49,7 @@ public class Dummy extends TestBase {
 	public void verifyProductRemoveFromWishList()
 	{
 		
-		String expected_result = "Your wish list is empty.";
+		boolean expected_result = true ;
 		
 		HomePage HomePage_obj = new HomePage(driver);
 		LoginPage LoginPage_obj = new LoginPage(driver);
@@ -65,13 +65,12 @@ public class Dummy extends TestBase {
 		HomePage_obj.clickOnWishListLink();
 		
 		MyWishListpage_obj.removeSecondProductFromWishList();
-		MyWishListpage_obj.removeFirstProductFromWishList();
-		
-		String actual_result = MyWishListpage_obj.getMacBookInWishListText();
+		boolean actual_result = MyWishListpage_obj.IsPopupAvailable();
 		
 		Assert.assertEquals(actual_result, expected_result);
-		
 		
 	}
 
 }
+
+

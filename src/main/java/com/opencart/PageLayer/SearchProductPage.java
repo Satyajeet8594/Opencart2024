@@ -11,11 +11,12 @@ public class SearchProductPage {
 		driver = d;
 	}
 	
-	//===== Object Repository =====
+	//===== Object Repository ==================================================
 	
-	By AddToCart_button = By.xpath("//*[@id='content']/div[3]/div[1]/div/div[2]/div[2]/button[1]");
-	By SuccessfullyAddedProduct_text = By.xpath("//*[@id=\"product-search\"]/div[1]");
-	//===== Action Method =========
+	private By AddToCart_button = By.xpath("//*[@id='content']/div[3]/div[1]/div/div[2]/div[2]/button[1]");
+	private By SuccessfullyAddedProduct_text = By.xpath("//*[@id=\"product-search\"]/div[1]");
+	
+	//===== Action Method ======================================================
 	
 	public void clickOnAddToCartButton()
 	{

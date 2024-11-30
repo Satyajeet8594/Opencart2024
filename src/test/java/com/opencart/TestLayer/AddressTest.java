@@ -12,7 +12,7 @@ import com.opencart.TestBase.TestBase;
 
 public class AddressTest extends TestBase {
 	
-	//@Test
+	@Test
 	public void verifyAddressSaveSuccessfully()
 	{
 		String Expected_Result = "Your address has been successfully added";
@@ -22,7 +22,7 @@ public class AddressTest extends TestBase {
 		HomePage_obj.clickOnLoginLink();
 		
 		LoginPage LoginPage_obj = new LoginPage(driver);
-		LoginPage_obj.enterEmailAddress("test101user@gmail.com"); // valid cred
+		LoginPage_obj.enterEmailAddress("test103user@gmail.com"); // valid cred
 		LoginPage_obj.enterPassword("Test@1234");
 		LoginPage_obj.clickOnLoginButton();
 		
@@ -33,12 +33,12 @@ public class AddressTest extends TestBase {
 		AddressBookEntryPage_obj.clickOnNewAddressButton();
 		
 		AddAddressPage AddAddressPage_obj = new AddAddressPage(driver);
-		AddAddressPage_obj.enterFirstname("Test");
-		AddAddressPage_obj.enterLastname("User");
+		AddAddressPage_obj.enterFirstname("TestNew");
+		AddAddressPage_obj.enterLastname("UserNew");
 		AddAddressPage_obj.enterCompanyName("Dummy");
-		AddAddressPage_obj.enterAddress1("Pune");
-		AddAddressPage_obj.enterAddress2("Swargate");
-		AddAddressPage_obj.enterCity("pune");
+		AddAddressPage_obj.enterAddress1("Mumbai");
+		AddAddressPage_obj.enterAddress2("bandra");
+		AddAddressPage_obj.enterCity("PuneNew");
 		AddAddressPage_obj.enterPostcode("123456");
 		AddAddressPage_obj.selectCountry();
 		AddAddressPage_obj.selectState();
@@ -59,7 +59,7 @@ public class AddressTest extends TestBase {
 		HomePage_obj.clickOnLoginLink();
 		
 		LoginPage LoginPage_obj = new LoginPage(driver);
-		LoginPage_obj.enterEmailAddress("test10user@gmail.com"); // valid cred
+		LoginPage_obj.enterEmailAddress("test103user@gmail.com"); // valid cred
 		LoginPage_obj.enterPassword("Test@1234");
 		LoginPage_obj.clickOnLoginButton();
 		
@@ -83,6 +83,7 @@ public class AddressTest extends TestBase {
 		
 		AddressBookEntryPage_obj.clickOnEditButton();
 		
+		AddAddressPage_obj.clearCityTextbox();
 		AddAddressPage_obj.enterCity("Satara");
 		AddAddressPage_obj.clickOnContinueButton();
 		
@@ -91,7 +92,7 @@ public class AddressTest extends TestBase {
 		Assert.assertEquals(Actual_Result, Expected_Result);
 	}
 	
-	//@Test
+	@Test
 	public void verifyAddressDeleteSuccessfully()
 	{
 		String Expected_Result = "Your address has been successfully deleted";
@@ -101,14 +102,14 @@ public class AddressTest extends TestBase {
 		HomePage_obj.clickOnLoginLink();
 		
 		LoginPage LoginPage_obj = new LoginPage(driver);
-		LoginPage_obj.enterEmailAddress("test10user@gmail.com"); // valid cred
+		LoginPage_obj.enterEmailAddress("test103user@gmail.com"); // valid cred
 		LoginPage_obj.enterPassword("Test@1234");
 		LoginPage_obj.clickOnLoginButton();
 		
 		MyAccountPage MyAccountPage_obj = new MyAccountPage(driver);
 		MyAccountPage_obj.clickOnAddressBookLink();
 		
-		AddressBookEntryPage AddressBookEntryPage_obj = new AddressBookEntryPage(driver);
+		/*AddressBookEntryPage AddressBookEntryPage_obj = new AddressBookEntryPage(driver);
 		AddressBookEntryPage_obj.clickOnNewAddressButton();
 		
 		AddAddressPage AddAddressPage_obj = new AddAddressPage(driver);
@@ -131,7 +132,11 @@ public class AddressTest extends TestBase {
 		AddressBookEntryPage_obj.clickOnEditButton();
 		
 		AddAddressPage_obj.enterCity("Mumbai");
-		AddAddressPage_obj.clickOnContinueButton();
+		AddAddressPage_obj.clickOnContinueButton();*/
+		
+		AddressBookEntryPage AddressBookEntryPage_obj = new AddressBookEntryPage(driver);
+		AddressBookEntryPage_obj.clickOnDeleteButton();
+		AddressBookEntryPage_obj.acceptAlert();
 		
 		String Actual_Result = AddressBookEntryPage_obj.getAddressDeletedMessage();
 		

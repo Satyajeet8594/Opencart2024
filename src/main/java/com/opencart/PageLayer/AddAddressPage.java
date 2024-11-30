@@ -74,6 +74,11 @@ public class AddAddressPage {
 	{
 		driver.findElement(continue_button).click();
 	}
+	public void clearCityTextbox()
+	{
+		driver.findElement(city_textbox).clear();
+	}
+	
 	
 	
 

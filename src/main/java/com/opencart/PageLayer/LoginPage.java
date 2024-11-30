@@ -11,14 +11,14 @@ public class LoginPage {
 		driver = d;
 	}
 
-	// ===== Object Repository =====
+	//===== Object Repository =============================================
 
 	private By EmailAddress_textbox = By.xpath("//input[@id='input-email']");
 	private By Password_textbox = By.xpath("//input[@id='input-password']");
 	private By Login_button = By.xpath("//input[@value='Login']");
 	private By ErrorMessage_text = By.xpath("//div[@class='alert alert-danger alert-dismissible']");
 
-	// ===== Action Method =========
+	//===== Action Method =================================================
 
 	public void enterEmailAddress(String email) {
 		driver.findElement(EmailAddress_textbox).sendKeys(email);
