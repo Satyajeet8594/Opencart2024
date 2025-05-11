@@ -12,7 +12,6 @@
           <include name="tearDown"/>
           <include name="verifyAddressSaveSuccessfully"/>
           <include name="setUp"/>
-          <include name="verifyAddressEditSuccessfully"/>
         </methods>
       </class> <!-- com.opencart.TestLayer.AddressTest -->
     </classes>

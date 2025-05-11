@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.opencart.TestLayer.Practice1">
+      <class name="com.opencart.TestLayer.LogoutTest">
         <methods>
-          <include name="test5"/>
+          <include name="tearDown"/>
+          <include name="verifyLogout"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.opencart.TestLayer.Practice1 -->
+      </class> <!-- com.opencart.TestLayer.LogoutTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
